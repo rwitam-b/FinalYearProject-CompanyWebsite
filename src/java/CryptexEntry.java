@@ -47,11 +47,12 @@ public class CryptexEntry extends HttpServlet {
                     response.sendRedirect("../cryptexLogin.html");
                 } else {
                     response.getWriter().println("Cryptex Server Down For Maintenance, Please Try Again !");
+                    response.getWriter().println(answer.getStatusLine().getStatusCode());
                 }
                 client.close();
 
             } catch (Exception e) {
-                System.out.println("Error In Providing Access To The Cryptex Vault !");
+                System.out.println("Error In Providing Access To The Cryptex Vault !");                
             }
 
         }
