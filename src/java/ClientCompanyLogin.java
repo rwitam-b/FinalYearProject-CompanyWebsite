@@ -40,6 +40,7 @@ public class ClientCompanyLogin extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("guid", guid);
                 session.setAttribute("name", name);
+                session.setAttribute("email", "mailtorwitam@gmail.com");
                 session.setMaxInactiveInterval(30 * 60);
                 System.out.println(name + " Logged in successfully GUID@" + guid);
                 response.sendRedirect("ClientCryptex/index.jsp");

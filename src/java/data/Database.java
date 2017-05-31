@@ -47,6 +47,19 @@ public class Database {
         return name;
     }
 
+    public String getCompanyEmail() {
+        String name = "";
+        try {
+            S = C.createStatement();
+            ResultSet RS = S.executeQuery("SELECT email from details");
+            RS.next();
+            name = RS.getString("email");
+        } catch (Exception e) {
+            System.out.println("Error While Attempting To Retreive Company Email");
+        }
+        return name;
+    }
+
     public boolean checkLogin(String guid, String password) {
         boolean out = false;
         try {

@@ -12,6 +12,10 @@
         <servlet-name>CryptexEntry</servlet-name>
         <servlet-class>CryptexEntry</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CryptexOTPCheck</servlet-name>
+        <servlet-class>CryptexOTPCheck</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClientCompanyLogin</servlet-name>
         <url-pattern>/ClientCompanyLogin</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CryptexEntry</servlet-name>
         <url-pattern>/ClientCryptex/CryptexEntry</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CryptexOTPCheck</servlet-name>
+        <url-pattern>/CryptexOTPCheck</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
