@@ -56,7 +56,7 @@ public class CryptexOTPCheck extends HttpServlet {
                 if (line.equals("allow")) {
                     HttpSession S = request.getSession();
                     S.setAttribute("authenticated", "true");
-                    response.sendRedirect("ClientCryptex/indexCryptex.jsp");
+                    response.sendRedirect("loading/loading.jsp");
                 } else if (line.equals("block")) {
                     response.sendRedirect("cryptexLogin.html");
                 }

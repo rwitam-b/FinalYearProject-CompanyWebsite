@@ -22,6 +22,29 @@ html,
 body {
   height: 100%;
 }
+html, body {
+    height: 100%;
+  }
+  #tableContainer-1 {
+    height: 100%;
+    width: 100%;
+    display: table;
+    border: none;
+    
+  }
+  #tableContainer-2 {
+    vertical-align: middle;
+    display: table-cell;
+    padding-right: 20px;
+    height: 100%;
+    border: none;
+    border-color: black;
+    visibility: hidden;
+   
+  }
+  #myTable {
+    margin: 0 auto;
+  }
 
 body {
   font-size: 16px;
@@ -30,18 +53,56 @@ body {
 }
 
 /* =============================================================================
+  CONTENT
+============================================================================= */
+.content {
+  position: relative;
+ 
+  z-index: 2;
+  margin: 0 auto;
+  max-width: 720px;
+  
+   font-size: 25px;
+   font-family: courier new;
+   color: greenyellow;
+}
+.r{color:red;}
+td{padding-right: 80px;}
+
+.content__heading {
+  margin-bottom: 24px;
+  color: #272727;
+ 
+}
+
+.content__teaser {
+  margin-bottom: 24px;
+  color: #595959;
+  font-size: 22px;
+}
+
+.content__cta {
+  display: inline-block;
+  margin: 0;
+  padding: 12px 48px;
+  color: #ff3c64;
+  font-size: 22px;
+  text-decoration: none;
+  border: solid 4px #ff3c64;
+}
+
+/* =============================================================================
   VIDEO
 ============================================================================= */
 .video {
-    background: black;
   position: fixed;
   top: 50%;
   left: 50%;
   z-index: 1;
   min-width: 100%;
   min-height: 100%;
-  width: 1300px;
-  height: 720px;
+  width: auto;
+  height: auto;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);

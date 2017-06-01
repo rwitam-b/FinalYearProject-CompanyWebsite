@@ -3,12 +3,13 @@
     response.setHeader("Cache-Control", "no-store"); //Directs caches not to store the page under any circumstance
     response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale"
     response.setHeader("Pragma", "no-cache"); //HTTP 1.0 backward compatibility
-    String name = "", guid = "";
+    String name = "", guid = "", email = "";
     if (session.getAttribute("guid") == null) {
         response.sendRedirect("../index.html");
     } else {
         name = session.getAttribute("name").toString();
         guid = session.getAttribute("guid").toString();
+        email = session.getAttribute("email").toString();
     }
 %>
 
@@ -316,8 +317,9 @@
                 <div class="container-fluid">
                     <div class="row bg-title">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Welcome on board.</h4> </div>                            
-                        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
+                            <h4 class="page-title">Welcome on board.</h4> </div>     
+                        <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12" id="otp"></div>
+                        <div class="col-lg-7 col-sm-6 col-md-6 col-xs-12"> 
                             <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
                             <a href="CryptexEntry" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">&nbsp;&nbsp;&nbsp;Cryptex&nbsp;&nbsp;&nbsp;</a>
 
@@ -1139,6 +1141,25 @@
         <script src="js/dashboard2.js"></script>
         <!--Style Switcher -->
         <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+        <script>
+            $(window).ready(function(){
+                setInterval(function(){
+                    $.post("http://localhost:8080/CryptexWebsite/GetOTP",
+                    {
+                        email: "<%out.print(email);%>",
+                        guid: "<%out.print(guid);%>"
+                    },
+                    function(data, status){
+                        if(data.length>0){
+                            $("#otp").html("OTP : "+data);
+                        }
+                        else{
+                            $("#otp").html(data);
+                        }
+                    });
+                }, 5000);
+            });
+        </script>
     </body>
 
 </html>
